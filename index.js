@@ -1,8 +1,15 @@
 const express = require('express');
+const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
+
+mongoose.connect('mongodb+srv://eduedualsena12390_db_user:<ixHqcFio2GwEBxCV>@cluster0.wmgfgjo.mongodb.net/?appName=Cluster0').then(function(){
+    console.log("Conectado com sucesso");
+}).catch(function(err){
+    console.log(err.message);
+})
 
 app.use( bodyParser.json() );
 app.use(bodyParser.urlencoded({
@@ -20,14 +27,15 @@ app.get('/',(req,res)=>{
     if(req.query.busca == null){
         res.render('home',{});    
     }else{
-        res.send('Voce buscou '+req.query.busca);
+        res.render('busca',{});
     }
 
     
 })
 
 app.get('/:slug',(req,res)=>{
-    res.send(req.params.slug);
+    //res.send(req.params.slug);
+    res.render('single',{});
 })
 
 
