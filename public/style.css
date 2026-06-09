@@ -1,3 +1,13 @@
+/* Definição de Variáveis para facilitar manutenção */
+:root {
+    --color-primary: #0aacdc;
+    --color-primary-dark: #008bb4;
+    --color-text-dark: #303336;
+    --color-text-muted: #7b8591;
+    --color-bg-gray: #eaeaea;
+    --border-radius-main: 10px;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -5,16 +15,15 @@
     font-family: "Lato", sans-serif;
 }
 
-html,body{
+html, body{
     height: 100%;
 }
 
 header{
     padding: 8px 0;
-    background-color: #0aacdc;
+    background-color: var(--color-primary);
     text-align: center;
 }
-
 
 .center{
     max-width: 1280px;
@@ -49,12 +58,12 @@ header{
 }
 
 .form-busca input{
-    background-color: #008bb4;
+    background-color: var(--color-primary-dark);
     padding-left: 40px;
     border: 0;
     height: 40px;
     width: 100%;
-    border-radius: 10px;
+    border-radius: var(--border-radius-main);
     color: white;
     font-size: 20px;
 }
@@ -114,7 +123,7 @@ section.noticia-destaque > .center{
 }
 
 section.outras-noticias{
-    background-color: #eaeaea;
+    background-color: var(--color-bg-gray);
     padding: 30px 20px;
     text-align: center;
 }
@@ -128,22 +137,21 @@ section.outras-noticias h2{
     padding: 0 10px;
     display: flex;
     flex-wrap: wrap;
+    gap: 4%; /* Utilizando gap em vez de margin-right no filho */
 }
 
 .box-ultimas-single{
     text-align: left;
-    width: 48%;
-    margin-right: 2%;
+    width: 48%; /* 48% + 4% de gap distribui bem os dois cards */
     background-color: white;
     padding-bottom: 20px;
-    height: 100%;
-    border-radius: 10px;
+    border-radius: var(--border-radius-main);
 }
 
 .box-ultimas-single img{
     width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: var(--border-radius-main);
+    border-top-right-radius: var(--border-radius-main);
 }
 
 .box-ultimas-single h3{
@@ -153,12 +161,12 @@ section.outras-noticias h2{
 }
 
 .box-ultimas-single h2{
-    color: #303336;
-    font-size: 28px !important;
+    color: var(--color-text-dark);
+    font-size: 28px; /* Removido o !important */
 }
 
 .box-ultimas-single p{
-    color: #7b8591;
+    color: var(--color-text-muted);
     font-size: 16px;
     margin: 20px 0;
 }
@@ -169,8 +177,8 @@ section.outras-noticias h2{
     height: 56px;
     border: 1px solid #ebebeb;
     text-decoration: none;
-    color: #0aacdc;
-    border-radius: 10px;
+    color: var(--color-primary);
+    border-radius: var(--border-radius-main);
     line-height: 56px;
     font-size: 19px;
     text-align: center;
@@ -182,7 +190,6 @@ section.outras-noticias h2{
 
 .mais-lidas{
     width: 40%;
-    height: 100%;
     background-color: white;
 }
 
@@ -191,8 +198,8 @@ section.outras-noticias h2{
     color: white;
     text-align: center;
     padding: 10px 8px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: var(--border-radius-main);
+    border-top-right-radius: var(--border-radius-main);
 }
 
 .mais-lidas-noticias-single{
@@ -209,7 +216,7 @@ section.outras-noticias h2{
 
 .mais-lidas-noticias-single .texto-mais-lidas-single{
     width: 70%;
-    padding: 8 20px;
+    padding: 8px 20px; /* Corrigido: adicionado 'px' no 8 */
 }
 
 .texto-mais-lidas-single h4{
@@ -218,7 +225,7 @@ section.outras-noticias h2{
 }
 
 .texto-mais-lidas-single p{
-    color: #7b8591;
+    color: var(--color-text-muted);
     font-size: 14px;
 }
 
@@ -228,8 +235,8 @@ section.outras-noticias h2{
     height: 36px;
     border: 1px solid #ebebeb;
     text-decoration: none;
-    color: #0aacdc;
-    border-radius: 10px;
+    color: var(--color-primary);
+    border-radius: var(--border-radius-main);
     line-height: 36px;
     font-size: 14px;
     text-align: center;
@@ -238,25 +245,34 @@ section.outras-noticias h2{
 
 footer{
     margin: 20px 0;
-    background-color: #0aacdc;
+    background-color: var(--color-primary);
     text-align: center;
     color: white;
     padding: 15px 0;
 }
 
 @media screen and (max-width: 768px) {
-    .logo,.form-busca{width: 100%;}
-    .form-busca{text-align: center;margin-top: 10px;}
+    .logo, .form-busca{
+        width: 100%;
+    }
+    
+    .form-busca{
+        text-align: center;
+        margin-top: 10px;
+    }
 
     .title-destaque-descricao h2{
         font-size: 34px;
         margin: 20px 0;
     }
 
-    .ultimas,.mais-lidas{
+    .ultimas, .mais-lidas{
         width: 100%;
         margin-bottom: 20px;
     }
 
-    .box-ultimas-single{width: 100%;margin-right: 0; margin-bottom: 20px;}
+    .box-ultimas-single{
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
