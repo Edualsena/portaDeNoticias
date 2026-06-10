@@ -278,17 +278,25 @@ section.outras-noticias h2::after {
     border-radius: 2px;
 }
 
+section.outras-noticias .center,
+section.noticia .center {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
 .ultimas {
-    width: 60%;
-    padding: 0 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4%;
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
 }
 
 .box-ultimas-single {
     text-align: left;
-    width: 48%;
+    width: 100%;
     background: var(--color-bg-card);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -386,7 +394,8 @@ section.outras-noticias h2::after {
 
 /* ── Mais Lidas ── */
 .mais-lidas {
-    width: 40%;
+    width: 100%;
+    min-width: 0;
     background: var(--color-bg-card);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -394,6 +403,25 @@ section.outras-noticias h2::after {
     border: 1px solid var(--color-border);
     overflow: hidden;
     transition: var(--transition);
+    position: sticky;
+    top: 78px;
+    align-self: start;
+    max-height: calc(100vh - 96px);
+    display: flex;
+    flex-direction: column;
+}
+
+.mais-lidas-noticias {
+    overflow-y: auto;
+    flex: 1;
+}
+
+section.outras-noticias .center > .mais-lidas:only-child {
+    grid-column: 1 / -1;
+    max-width: 720px;
+    margin: 0 auto;
+    position: static;
+    max-height: none;
 }
 
 .mais-lidas:hover {
@@ -546,8 +574,8 @@ section.noticia {
     -webkit-backdrop-filter: blur(12px);
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--color-border);
-    width: 58%;
-    margin-right: 2%;
+    width: 100%;
+    min-width: 0;
     transition: var(--transition);
 }
 
@@ -631,14 +659,25 @@ section.noticia {
         font-size: 28px;
     }
 
-    .ultimas, .mais-lidas {
-        width: 100%;
-        margin-bottom: 24px;
+    section.outras-noticias .center,
+    section.noticia .center {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .ultimas {
+        grid-template-columns: 1fr;
+        margin-bottom: 0;
+    }
+
+    .mais-lidas {
+        position: static;
+        max-height: none;
+        margin-bottom: 0;
     }
 
     .box-ultimas-single {
-        width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 0;
     }
 
     .noticia-single {
