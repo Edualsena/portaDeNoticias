@@ -112,6 +112,13 @@ section.noticia-destaque > .center{
     margin: 20px 0;
 }
 
+.title-destaque-descricao a{
+    font-size: 64px;
+    margin: 20px 0;
+    color: white;
+    text-decoration: none;
+}
+
 .title-destaque-descricao p{
     font-weight: lighter;
     font-size: 16px;
@@ -219,6 +226,7 @@ section.outras-noticias h2{
 
 .mais-lidas-noticias-single img{
     width: 30%;
+    max-width: 100px;
     border-radius: 5px;
 }
 

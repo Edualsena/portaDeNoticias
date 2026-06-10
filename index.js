@@ -50,13 +50,25 @@ app.get('/', async (req, res) => {
         try {
             // Removido o callback e o .exec(), adicionado o await
             const posts = await Posts.find({}).sort({ '_id': -1 });
+
+            var postsMap = posts.map(function(val){
+                return {
+                    titulo: val.titulo,
+                    conteudo: val.conteudo,
+                    descricaoCurta: val.conteudo.substr(0,100),
+                    imagem: val.imagem,
+                    slug: val.slug,
+                    categoria: val.categoria
+                }
+            })
             
             if (posts.length > 0) {
-                console.log(posts[0]);
+                /*console.log(posts[0]);*/
+                res.render('home', { posts: postsMap });
             }
             
             // Se você precisa enviar os posts para a página, lembre-se de passá-los aqui:
-            res.render('home', { posts: posts }); 
+            /*res.render('home', { posts: posts });*/ 
         } catch (err) {
             console.error("Erro ao buscar posts:", err);
             res.status(500).send("Erro interno do servidor");
