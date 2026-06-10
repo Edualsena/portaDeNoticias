@@ -37,17 +37,16 @@
                     <br>
                     <h3>Mais Lidas</h3>
                     <div class="mais-lidas-noticias">
+                        <% for(let i = 0; i < posts.length; i++) { %>
                         <div class="mais-lidas-noticias-single">
-                            <% for(let i = 0; i < posts.length; i++) { %>
                             <img src="<%= posts[i].imagem %>">
                             <div class="texto-mais-lidas-single">
                                 <h4><%= posts[i].titulo %></h4>
                                 <p><%- posts[i].descricaoCurta %>...</p>
-                                <a href="<%= posts[0].slug %>">Saiba mais</a>
+                                <a href="<%= posts[i].slug %>">Saiba mais</a>
                             </div>
                         </div>
                         <% } %>
-
                     </div><!--mais-lidas-noticias-->
                 </div><!--mais-lidas-->
             </div><!--center-->
