@@ -2,12 +2,14 @@
 <section class="noticia">
     <div class="center">
         <div class="noticia-single">
-            <h2>Dez principais habilidades para se tornar um desenvolverdor full-stack</h2>
+            <h2><%= noticia.titulo %></h2>
             <div class="autor-nome">
-                <span>Por Eduardo sena</span>
+                <span>Por <%= noticia.autor %></span>
             </div><!--autor-nome-->
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quidem quas laboriosam deserunt aliquam voluptatum aspernatur! Libero sunt, veritatis eos exercitationem</p> <h3>full-stack</h3><p> mollitia explicabo perferendis laborum, molestiae facere architecto cum quasi!]</p>
+            <br>
+            <div><img style="max-width: 100%;" src="<%= noticia.imagem %>"></div>
+            
+            <p><%- noticia.conteudo %></p>
         </div><!--noticia-single-->
         
          <div class="mais-lidas">

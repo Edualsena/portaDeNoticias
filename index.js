@@ -80,9 +80,21 @@ app.get('/', async (req, res) => {
 });
 
 
-app.get('/:slug',(req,res)=>{
+app.get('/:slug', async (req,res)=>{
     //res.send(req.params.slug);
-    res.render('single',{});
+    try {
+    const resposta = await Posts.findOneAndUpdate({slug: req.params.slug}, {$inc : {views: 1}}, {new: true});
+
+    if (!resposta) {
+            return res.status(404).send('Notícia não encontrada.');
+            // Ou você pode renderizar uma página de erro: res.render('404');
+    }
+
+    console.log(resposta);
+    res.render('single',{ noticia: resposta });
+    } catch (err) {
+        res.status(500).send(err);
+    }
 })
 
 
